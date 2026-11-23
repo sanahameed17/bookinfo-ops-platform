@@ -1,0 +1,93 @@
+Run in Claude's Linux sandbox on 2026-11-23T14:06:15Z - Python 3.13.18, pytest 9.1.1
+fastapi, httpx, kubernetes, langchain were NOT installable there (no network), so tests needing them were SKIPPED - they run on your machine.
+
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/claude/bookinfo-ops-platform/backend
+configfile: pytest.ini
+testpaths: tests
+plugins: platformdirs-4.13.5, anyio-4.15.1
+collecting ... collected 67 items / 1 skipped
+
+tests/integration/test_live_cluster.py::test_kubernetes_connectivity SKIPPED [  1%]
+tests/integration/test_live_cluster.py::test_service_discovery SKIPPED   [  2%]
+tests/integration/test_live_cluster.py::test_deployment_discovery_reviews_versions SKIPPED [  4%]
+tests/integration/test_live_cluster.py::test_pod_discovery SKIPPED (...) [  5%]
+tests/integration/test_live_cluster.py::test_prometheus_connectivity SKIPPED [  7%]
+tests/integration/test_live_cluster.py::test_cpu_and_memory_metrics_live SKIPPED [  8%]
+tests/integration/test_live_cluster.py::test_restart_metrics_live SKIPPED [ 10%]
+tests/integration/test_live_cluster.py::test_service_detail_live SKIPPED [ 11%]
+tests/unit/test_agent.py::test_tools_are_read_only_by_name PASSED        [ 13%]
+tests/unit/test_agent.py::test_get_services_tool PASSED                  [ 14%]
+tests/unit/test_agent.py::test_cpu_tool_sorted_highest_first PASSED      [ 16%]
+tests/unit/test_agent.py::test_cpu_tool_compares_reviews_versions PASSED [ 17%]
+tests/unit/test_agent.py::test_cpu_tool_refuses_to_guess_when_prometheus_down PASSED [ 19%]
+tests/unit/test_agent.py::test_restart_tool PASSED                       [ 20%]
+tests/unit/test_agent.py::test_service_health_tool_and_unknown_service PASSED [ 22%]
+tests/unit/test_agent.py::test_unhealthy_pods_found PASSED               [ 23%]
+tests/unit/test_agent.py::test_anomaly_tool PASSED                       [ 25%]
+tests/unit/test_agent.py::test_loop_guard_blocks_identical_call PASSED   [ 26%]
+tests/unit/test_agent.py::test_agent_not_configured PASSED               [ 28%]
+tests/unit/test_agent.py::test_agent_calls_real_tool_and_reports_evidence SKIPPED [ 29%]
+tests/unit/test_agent.py::test_agent_llm_error_is_structured_and_hides_key SKIPPED [ 31%]
+tests/unit/test_discovery.py::test_four_logical_services_not_six PASSED  [ 32%]
+tests/unit/test_discovery.py::test_reviews_has_three_versions_and_deployments PASSED [ 34%]
+tests/unit/test_discovery.py::test_pod_links_through_replicaset_to_deployment PASSED [ 35%]
+tests/unit/test_discovery.py::test_service_overview_fields PASSED        [ 37%]
+tests/unit/test_discovery.py::test_containers_images_probes_and_resources PASSED [ 38%]
+tests/unit/test_discovery.py::test_healthy_namespace PASSED              [ 40%]
+tests/unit/test_discovery.py::test_crashloop_marks_service_down_with_reason PASSED [ 41%]
+tests/unit/test_discovery.py::test_restart_count_sums_all_containers PASSED [ 43%]
+tests/unit/test_discovery.py::test_service_without_selector_is_unknown PASSED [ 44%]
+tests/unit/test_discovery.py::test_find_missing_service_returns_none PASSED [ 46%]
+tests/unit/test_discovery.py::test_parse_quantity_and_capacity PASSED    [ 47%]
+tests/unit/test_discovery.py::test_events_filtered_and_sorted PASSED     [ 49%]
+tests/unit/test_metrics_and_status.py::test_parse_vector_keeps_nan_as_none_and_utc_iso PASSED [ 50%]
+tests/unit/test_metrics_and_status.py::test_parse_empty_vector_stays_empty PASSED [ 52%]
+tests/unit/test_metrics_and_status.py::test_parse_error_raises PASSED    [ 53%]
+tests/unit/test_metrics_and_status.py::test_parse_matrix PASSED          [ 55%]
+tests/unit/test_metrics_and_status.py::test_queries_use_cores_mib_and_exclude_pause_containers PASSED [ 56%]
+tests/unit/test_metrics_and_status.py::test_pod_regex_matches_versions_only PASSED [ 58%]
+tests/unit/test_metrics_and_status.py::test_cpu_and_memory_metrics PASSED [ 59%]
+tests/unit/test_metrics_and_status.py::test_missing_metric_is_none_not_zero PASSED [ 61%]
+tests/unit/test_metrics_and_status.py::test_empty_prometheus_result PASSED [ 62%]
+tests/unit/test_metrics_and_status.py::test_prometheus_failure_is_reported_not_raised PASSED [ 64%]
+tests/unit/test_metrics_and_status.py::test_restart_metrics PASSED       [ 65%]
+tests/unit/test_metrics_and_status.py::test_history_rejects_unknown_range_and_keeps_gaps PASSED [ 67%]
+tests/unit/test_metrics_and_status.py::test_sum_or_none PASSED           [ 68%]
+tests/unit/test_metrics_and_status.py::test_status_normal PASSED         [ 70%]
+tests/unit/test_metrics_and_status.py::test_status_cpu_anomaly_names_pod_and_metric PASSED [ 71%]
+tests/unit/test_metrics_and_status.py::test_status_memory_anomaly PASSED [ 73%]
+tests/unit/test_metrics_and_status.py::test_status_prometheus_unavailable_is_not_normal PASSED [ 74%]
+tests/unit/test_metrics_and_status.py::test_status_missing_metrics_is_not_normal PASSED [ 76%]
+tests/unit/test_metrics_and_status.py::test_status_crashloop_is_anomalous_even_without_prometheus PASSED [ 77%]
+tests/unit/test_platform.py::test_overview_totals PASSED                 [ 79%]
+tests/unit/test_platform.py::test_overview_without_prometheus_has_no_fake_numbers PASSED [ 80%]
+tests/unit/test_platform.py::test_overview_warns_about_chaos_experiments PASSED [ 82%]
+tests/unit/test_platform.py::test_service_cards PASSED                   [ 83%]
+tests/unit/test_platform.py::test_service_card_down_service PASSED       [ 85%]
+tests/unit/test_platform.py::test_service_detail PASSED                  [ 86%]
+tests/unit/test_platform.py::test_unknown_service_404 PASSED             [ 88%]
+tests/unit/test_platform.py::test_dependencies_from_jaeger PASSED        [ 89%]
+tests/unit/test_platform.py::test_history_per_service_uses_pod_regex PASSED [ 91%]
+tests/unit/test_platform.py::test_health_endpoint_logic PASSED           [ 92%]
+tests/unit/test_topology.py::test_reviews_weights_and_subsets PASSED     [ 94%]
+tests/unit/test_topology.py::test_gateway_virtualservice_in_default_namespace_is_found PASSED [ 95%]
+tests/unit/test_topology.py::test_istio_not_installed PASSED             [ 97%]
+tests/unit/test_topology.py::test_edges_from_istio_metrics PASSED        [ 98%]
+tests/unit/test_topology.py::test_no_dependency_data_is_explained PASSED [100%]
+
+=========================== short test summary info ============================
+SKIPPED [1] tests/api/test_api.py:8: could not import 'fastapi': No module named 'fastapi'
+SKIPPED [1] tests/integration/test_live_cluster.py:25: set LIVE_TESTS=1 to run live tests
+SKIPPED [1] tests/integration/test_live_cluster.py:30: set LIVE_TESTS=1 to run live tests
+SKIPPED [1] tests/integration/test_live_cluster.py:35: set LIVE_TESTS=1 to run live tests
+SKIPPED [1] tests/integration/test_live_cluster.py:40: set LIVE_TESTS=1 to run live tests
+SKIPPED [1] tests/integration/test_live_cluster.py:45: set LIVE_TESTS=1 to run live tests
+SKIPPED [1] tests/integration/test_live_cluster.py:49: set LIVE_TESTS=1 to run live tests
+SKIPPED [1] tests/integration/test_live_cluster.py:55: set LIVE_TESTS=1 to run live tests
+SKIPPED [1] tests/integration/test_live_cluster.py:59: set LIVE_TESTS=1 to run live tests
+SKIPPED [1] tests/unit/test_agent.py:97: could not import 'langchain_classic': No module named 'langchain_classic'
+SKIPPED [1] tests/unit/test_agent.py:112: could not import 'langchain_classic': No module named 'langchain_classic'
+======================== 57 passed, 11 skipped in 0.09s ========================

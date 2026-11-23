@@ -1,0 +1,28 @@
+Frontend server-side render smoke check, run in Claude's sandbox on 2026-11-23T14:06:15Z
+Method: esbuild bundle of the real pages; react-router-dom, recharts and lucide-react replaced by small stand-ins (not installable offline);
+data = real JSON produced by the backend PlatformService on the fake Bookinfo namespace (normal and 'Prometheus down').
+This is NOT the vitest suite - run .\scripts\run-tests.ps1 on your machine for that.
+
+OK   normal Layout 4768 chars
+OK   normal OverviewPage 19219 chars
+OK   normal ServicesPage 17461 chars
+OK   normal ServiceDetailPage 33045 chars
+OK   normal PodsPage 9721 chars
+OK   normal MonitoringPage 10880 chars
+OK   normal AgentPage 4181 chars
+OK   normal EventsPage 3184 chars
+OK   normal SettingsPage 6115 chars
+OK   normal NotFoundPage 395 chars
+OK   down Layout 4768 chars
+OK   down OverviewPage 19862 chars
+OK   down ServicesPage 19298 chars
+OK   down ServiceDetailPage 23356 chars
+OK   down PodsPage 9721 chars
+OK   down MonitoringPage 10880 chars
+OK   down AgentPage 4181 chars
+OK   down EventsPage 3184 chars
+OK   down SettingsPage 6115 chars
+OK   down NotFoundPage 395 chars
+chart 489
+rows 2 <0.001 cores — 2.00 GiB reviews-v1-…mfjkw
+exit code: 0

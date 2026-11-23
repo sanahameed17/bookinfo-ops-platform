@@ -1,0 +1,33 @@
+# Secrets - never commit
+.env
+.env.*
+!.env.example
+.kube-docker/
+*.pem
+*.key
+kubeconfig*
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+
+# Local reports / logs
+docs/test-results/*.local.txt
+phase1-report.txt
+*.log
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+
+# Offline Docker build artefacts
+backend/wheels/
